@@ -1,4 +1,0 @@
-#!/bin/bash
-# This script will be executed to build the application
-echo "Assembling the application..."
-pip install --no-cache-dir -r requirements.txt

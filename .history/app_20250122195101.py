@@ -3,9 +3,7 @@ import pytesseract
 from PIL import Image
 import os
 
-
 app = Flask(__name__)
-
 
 @app.route('/upload_id', methods=['POST'])  
 def upload_id():
@@ -24,7 +22,6 @@ def upload_id():
     # Return the extracted text
     return jsonify({"extracted_text": id_data})
 
-
 @app.route('/process_ids', methods=['GET'])
 def process_ids():
     folder_path = 'foto'
@@ -38,7 +35,6 @@ def process_ids():
             results.append({"filename": filename, "data": id_data})
 
     return jsonify(results)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)), debug=False)

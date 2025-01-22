@@ -1,5 +1,5 @@
-# Use an OpenShift-compatible Python image as a base
-FROM registry.access.redhat.com/ubi8/python-39
+# Use the official Python image as a base
+FROM python:3.9-slim
 
 # Set the working directory
 WORKDIR /app

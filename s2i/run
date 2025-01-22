@@ -1,0 +1,4 @@
+#!/bin/bash
+# This script will be executed to run the application
+echo "Starting the application..."
+python app.py

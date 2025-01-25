@@ -30,3 +30,9 @@ def process_images():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
+```
+# Requirements
+Flask
+opencv-python
+pytesseract
+pandas

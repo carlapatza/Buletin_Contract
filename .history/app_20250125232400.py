@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Irgendein Text"
+    return "Welcome to the OCR Flask App!"
 
 @app.route('/process', methods=['POST'])
 def process_images():

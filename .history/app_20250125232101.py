@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Irgendein Text"
+    return "Welcome to the OCR Flask App!"
 
 @app.route('/process', methods=['POST'])
 def process_images():
@@ -30,8 +30,13 @@ def process_images():
         if filename.endswith(('.png', '.jpg', '.jpeg')):
             img_path = os.path.join(folder_path, filename)
             img = cv2.imread(img_path)
-            text = pytesseract.image_to_string(img)
-            data.append({'filename': filename, 'text': text})
+
+            # Error handling for OCR
+            try:
+                text = pytesseract.image_to_string(img)
+                data.append({'filename': filename, 'text': text})
+            except Exception as e:
+                data.append({'filename': filename, 'error': str(e)})
 
     df = pd.DataFrame(data)
     df.to_csv(output_file, index=False)

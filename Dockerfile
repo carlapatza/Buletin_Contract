@@ -2,6 +2,11 @@ FROM python:3.13
 
 WORKDIR /app
 
+# Installieren Sie die erforderlichen Bibliotheken
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0
+
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
